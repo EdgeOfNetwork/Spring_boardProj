@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        li {
+            list-style: none;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div>
+
+    <div style="padding: 10px; text-align: center;">
+        <h1><a th:href="@{/list}" style="text-decoration: none;">Board</a></h1>
+    </div>
+
+    <div>
+        <table>
+            <thead style="text-align: center;">
+            <tr>
+                <th style="text-align: center;">번호</th>
+                <th style="text-align: center;">제목</th>
+                <!--                <th style="text-align: center;">작성자</th>-->
+                <th style="text-align: center;">내용</th>
+                <!--                <th style="text-align: center;">작성일</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="data : ${boardList}"></tr>
+                <td th:text="${data.title}"></td>
+                <td th:text="${data.content}"></td>
+<!--                <td><a th:text="${data.title}" th:href="@{/board/detail(id=${data.id})}">title</a></td>-->
+            </tbody>
+        </table>
+    </div>
+
+    <div style="text-align: right;">
+        <button onclick="location.href='/Board/insert'">글작성</button>
+    </div>
+
+    <br/><br/><br/>
+</div>
+</body>
+</html>

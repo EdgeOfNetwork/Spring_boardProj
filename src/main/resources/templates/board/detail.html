@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 - 상세페이지</title>
+</head>
+
+<body>
+<div>
+    <div style="padding: 10px; text-align: center;">
+        <h1><a th:href="@{/Board/list}" style="text-decoration: none;">Board test</a></h1>
+    </div>
+
+    <div>
+        <div>
+            <h4 style="font-weight: bolder;">상세내용</h4>
+            <br/><!-- fileBoardVO를 뭘로 수정할까?-->
+
+            <form role="form" th:object=${BoardDto} th:action="@{/Board/list}" method="post">
+                <div>
+                    <label style="font-weight: bolder;">제목</label>
+                    <p th:text="${detail.title}"></p>
+                    <input type="hidden" th:field="${detail.title}">
+                </div>
+                <div>
+                    <label for="" style="font-weight: bolder;">내용</label>
+                    <p th:text="${detail.content}"></p>
+                    <input type="hidden" th:field="${detail.content}">
+                </div>
+                <div style="text-align: right;">
+                    <input type="submit" th:value="목록"
+                           th:formaction="@{/Board/list}">
+                    <input type="submit" th:value="수정"
+                           th:formaction="@{/Board/update/{bno}(bno=${detail.b_no})}">
+                    <input type="submit" th:value="삭제"
+                           th:formaction="@{/Board/delete/{bno}(bno=${detail.b_no})}">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
