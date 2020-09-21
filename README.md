@@ -2,9 +2,11 @@
 
 <h6>0921_spring_board_proj<br>
 
-### TODO : 1.upload to docker <br>
-###        2.rebuild system with DTO <br>
-###        3.build User entity and login system <br>
+ TODO : 1.upload to docker <br>
+        2.rebuild system with DTO <br>
+        3.build User entity and login system <br>
+        <br>
+ springboot + Restful + DTO + postgreSQL <br>
 
 
 
