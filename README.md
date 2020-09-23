@@ -5,7 +5,7 @@ Spring_boardProj
  2.build User entity and login system <br>
  <br>
  <br>
- springboot + Restful + DTO + postgreSQL + upload to docker <br>
+ springboot + Restful + DTO + PageableAndSorting + postgreSQL + upload to docker <br>
 
 <br>
 
