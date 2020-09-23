@@ -1,14 +1,15 @@
 Spring_boardProj 
  <hr>
- TODO : 1.Make board with @Pageable <br>
-        1.1 using sort algorithm<br>
-        2.rebuild system with DTO <br>
-        3.build User entity and login system <br>
-        <br>
+ TODO : 
+ 1.rebuild system with DTO <br>
+ 2.build User entity and login system <br>
+ <br>
+ <br>
  springboot + Restful + DTO + postgreSQL + upload to docker <br>
 
 
 
+<br>
 ISSUE 
 
 1. thymeleaf사용시 controller에서 return 값의 / 경로문제 ex/ return "/board" -> "board"
