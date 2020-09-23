@@ -1,36 +1,53 @@
 package com.example.Board.dto;
 
+import com.example.Board.model.Board;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 //@Data //이따 잘 돌아가면 실험해보자
+
+@Data
+@Getter
+@Setter
+@Builder
 public class BoardDto {
 
     private Long id;
     private String title;
     private String content;
+    private LocalDateTime createdDate;
+    private LocalDateTime modifiedDate;
 
-    public Long getId() {
-        return id;
+    public Board convertToEntity(){
+        Board board = new Board();
+        board.setId(getId());
+        board.setTitle(getTitle());
+        board.setContent(getContent());
+        return board;
     }
 
-    public void setId(Long id) {
+
+
+//    public Board toEntity(){
+//
+//        Board board = Board.builder()
+//                .id(id)
+//                .title(title)
+//                .content(content)
+//                .build();
+//        return board;
+//    }
+
+    public BoardDto(Long id, String title, String content, LocalDateTime createdDate, LocalDateTime modifiedDate){
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
         this.content = content;
+        this.createdDate = createdDate;
+        this.modifiedDate = modifiedDate;
     }
 
 }
