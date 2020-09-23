@@ -1,7 +1,5 @@
-<h1> Spring_boardProj <br>
-
-<h3> 0921_spring_board_proj
-
+Spring_boardProj 
+ <hr>
  TODO : 1.Make board with @Pageable <br>
         1.1 using sort algorithm<br>
         2.rebuild system with DTO <br>
