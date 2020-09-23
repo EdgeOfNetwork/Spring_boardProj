@@ -1,7 +1,6 @@
 package com.example.Board.controller;
 
 import com.example.Board.dto.BoardDto;
-import com.example.Board.model.Board;
 import com.example.Board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,11 +25,14 @@ public class BoardController {
 
     //Read
 
-    @GetMapping("/") //control 자원을 명시하는 URL에는 예외적으로 동사형 허용
-    public String showAllBoards(Model model) {
-        List<BoardDto> boardList = boardService.findBoardService();
-        System.out.println(boardList);//Log 쓰는걸로 바꾸자
+    @GetMapping("/")
+    public String showAllBoards(Model model, @RequestParam(value="page",defaultValue = "1") Integer pageNum) {
+        List<BoardDto> boardList = boardService.findBoardService(pageNum);
+        Integer[] pageList = boardService.getPageList(pageNum);
+
         model.addAttribute("boardList",boardList);
+        model.addAttribute("pageList",pageList);
+
         return "board/list"; //리턴값 제대로
     }
 
@@ -56,8 +58,8 @@ public class BoardController {
         return "redirect:/";
     }
 
-    //Update?
-    //@RequestMapping(value = "/post/edit/{no}", method = {RequestMethod.GET})
+    //Update
+
     @GetMapping("/post/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model){
         BoardDto boardDto = boardService.findBoardDetailService(id);
